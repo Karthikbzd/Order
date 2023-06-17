@@ -73,4 +73,16 @@ public class OrderController {
 		}
 		return ResponseEntity.ok(resMap);
 	}
+	
+	@GetMapping("/getOrdersByName/{productName}")
+	public ResponseEntity<?> getOrderByOrderId(@PathVariable(value = "productName") String productName) {
+		boolean status = false;
+		if (productName.isEmpty()) {
+			resMap = response.setResponse(status, Optional.empty());
+		} else {
+			List<Order> orders = orderImp.getOrdersByProductName(productName);
+			resMap = response.setResponse((orders != null && !orders.isEmpty()), orders);
+		}
+		return ResponseEntity.ok(resMap);
+	}
 }

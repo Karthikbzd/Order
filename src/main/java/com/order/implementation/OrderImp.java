@@ -12,4 +12,5 @@ public interface OrderImp {
 
 	Order getOrder(int orderId);
 
+	List<Order> getOrdersByProductName(String productName);
 }

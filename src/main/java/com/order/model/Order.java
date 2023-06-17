@@ -12,8 +12,9 @@ import lombok.Setter;
 public class Order {
 
 	private int orderId;
-	private List<Product> products;
 	private String customerName;
+	private List<Product> products;
+	
 
 	@Override
 	public String toString() {
